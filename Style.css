@@ -9,6 +9,14 @@
     box-sizing: border-box;
 }
 
+
+
+.button-group button{
+    padding: .25em .5em;
+    margin: .25rem 1rem ;
+}
+
+
 #grid{
     display: grid;
     /* grid-template-rows: repeat(var(--aantalCellen), max-content) */
@@ -27,4 +35,10 @@
 }
 .grid-element span{
 
+}
+.grid-element.current{
+ background-color: red;
+}
+.green{
+    background-color: green;
 }
