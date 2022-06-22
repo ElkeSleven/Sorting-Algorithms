@@ -18,8 +18,12 @@ window.onload = function (){
 }
 
 function sortArray(){
-        bubbleSort(arrayToRender)
+        bubbleSort()
+
 }
+
+
+
 function compere(eersteWaarde, tweedeWaarde){
     if (eersteWaarde > tweedeWaarde){
         return 1
@@ -32,9 +36,6 @@ function compere(eersteWaarde, tweedeWaarde){
     }
 }
 function bubbleSort() {
-
-    while (gesorteerdeArray !== arrayToRender.length) {
-
 
         if (currentIndex === arrayToRender.length - 1) {
             currentIndex = 0
@@ -79,7 +80,9 @@ function bubbleSort() {
         }
 
         currentIndex++
-    }
+        if(gesorteerdeArray !== arrayToRender.length){
+            setTimeout(bubbleSort, 100)
+        }
 }
 function maakGrid(){
     let index = ''
