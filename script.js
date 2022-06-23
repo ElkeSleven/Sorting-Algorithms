@@ -1,7 +1,7 @@
 
 // dom elementen
 const grid = document.getElementById('grid')
-const buttonStart = document.getElementById('start')
+const btn_Start = document.getElementById('start')
 const buttonLenghtArray = document.getElementById('lenghtArray-btn')
 const inputLenghtArray = document.getElementById('lenghtArray')
 buttonLenghtArray.addEventListener('click', createOngesorteerdeArray)
@@ -13,8 +13,62 @@ let isEerst = true
 let isLaatse = false
 let gesorteerdeArray = 0
 let arrLenght = 0;
+window.onload = function (){
+    createSelect();
+}
+function createSelect(){
+    const sortOptions = [
+    'Bubble Sort',
+    'Selection Sort',
+    'Insertion Sort',
+    'Merge Sort',
+    'Quick Sort',
+    'Bucket Sort',]
 
-//window.onload = function (){}
+    let select = document.createElement('select')
+    select.name = `sortOptions`
+    sortOptions.forEach(sortOption => {
+        let option = document.createElement('option');
+        option.value = sortOption;
+        option.innerText = sortOption;
+        select.appendChild(option);
+
+    })
+    document.getElementById('sortSelect').appendChild(select)
+}
+function btnStartClicked(){
+    //let selectedSortOption = document.getElementsByName('sortOptions')[0].value
+    // kijk welke option is gesilecteerd
+    switch(document.getElementsByName('sortOptions')[0].value) {
+        case('Bubble Sort'):
+            sortArray_bubbleSort();
+            break;
+        case('Selection Sort'):
+            //code
+            break;
+        case( 'Insertion Sort'):
+            //code
+            break;
+        case( 'Merge Sort'):
+            //code
+            break;
+        case ( 'Quick Sort'):
+            //code
+            break;
+        case ( 'Bucket Sort'):
+            //code
+            break;
+        default:
+        alert('sorry deze optie is nog in progress')
+    }
+
+
+}
+
+
+
+
+
 function createOngesorteerdeArray(){
     arrLenght = parseInt(inputLenghtArray.value)
     ongesorteerdeArray = [];
@@ -25,7 +79,7 @@ function createOngesorteerdeArray(){
         arrLenght = 0 ;
         arrayToRender = ongesorteerdeArray
         grid.innerHTML =  maakGrid();
-        buttonStart.addEventListener('click', sortArray_bubbleSort)
+        btn_Start.addEventListener('click',btnStartClicked )
     }
 
 }
@@ -49,7 +103,7 @@ function compere(eersteWaarde, tweedeWaarde){
 }
 function sortArray_bubbleSort(){
     console.time('timer')
-    buttonStart.removeEventListener('click', sortArray)
+    btn_Start.removeEventListener('click',btnStartClicked )
     bubbleSort()
     function bubbleSort() {
         if (currentIndex === arrayToRender.length - 1) {
