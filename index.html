@@ -9,6 +9,12 @@
 <body>
 <div class="button-group">
     <button id="start">start</button>
+    <label for="lenghtArray">
+        lenghtArray:
+        <input id="lenghtArray" type="text" oninput="this.value = this.value.replace(/[^0-9.]/, '').replace(/(\..*)\./);" />
+    </label>
+    <button id="lenghtArray-btn">RandomArray</button>
+
 </div>
 
 
